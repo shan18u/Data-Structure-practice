@@ -20,3 +20,13 @@ def recurrsion_fun(i):    # call funtion starts opposite side    ----(1)
                                                             #if still confuse about last part check my youtube channel or see what happen in itertive side but try to do it from bottom to top. Same thing. 
 
 print(recurrsion_fun(5))                            
+
+
+#short form of recurrsion method is 
+def recurrsion_fun(i)
+
+if i == 1: return i
+else: return recurrions_fun(i-1)        # 2 lines of codes...
+
+
+print(recurrsion_fun(5))                            
