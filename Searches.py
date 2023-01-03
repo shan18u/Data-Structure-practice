@@ -30,3 +30,16 @@ return start                                   # return the answer that we go fr
 arr= [1, 2, 3, 4, 5]
 target = 3
 print(searches(arr, 0, len(arr) -1, target))        # arr, i = 0, i = last index, 3
+
+#binary in recurssion is 
+
+   
+    if mid > target:                                  # start from mid and end at end or move to right and start searching from right to left.
+      searches(arr, mid + 1, end, target) 
+      
+    elseif mid < target:
+      searches(arr, start, mid - 1, target)             # start from start and end at mid or move to left and start searching from left to right.
+      
+      
+      
+
