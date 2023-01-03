@@ -54,13 +54,22 @@ def bubble_sort(A):
    
   return A, iteration_count
 
-
-
 A = [5. 3, 2, 1]
 print(bubble_sort(A))
 
-
-
+#Insertion sort
+ def insertion_sort(A)
+  for j in range (1, len(A)):
+    key = A[j]                      # variable key 
+    i = j - 1                           # pointer assign to the left of the key
+    while i >= 0 and A[i] > key:          # as long as i > 0 and i > key 
+      A[i + 1] = A[i]                       # move larger key to the right and move downwards and put small elements to the left
+      i -= 1                                   # and move downwards and put small elements to the left 
+    A[i + 1] = key
+ return A
+    
+A = [5. 3, 2, 1]
+print(insertion(A))
 
 
 
