@@ -42,4 +42,28 @@ print(searches(arr, 0, len(arr) -1, target))        # arr, i = 0, i = last index
       
       
       
+#Bubble Sorting
+def bubble_sort(A):
+  iteration_count = 0
+    for i in range(len(A)):
+      for j in range(len(A) - i - 1)                # when i = 0 then j = 0,1, 2, 3..., then i = 2, j = 0,1, 2...(won't run the last index from last time), 
+                                                        #keep going until either we reach i = len(A) or we get sorted list done. 
+        iteration += 1
+          if A[J] > A[J +1]
+            A[J], A[J + 1] = A[J + 1] , A[J]        #Swap these two 
+   
+  return A, iteration_count
+
+
+
+A = [5. 3, 2, 1]
+print(bubble_sort(A))
+
+
+
+
+
+
+
+
 
