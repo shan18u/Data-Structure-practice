@@ -1,0 +1,37 @@
+Leetcode Group Anagrams:
+
+class Solution:
+    def groupAnagrams(self, strs):
+        # Create an empty dictionary where the default value is an empty list
+        result = collections.defaultdict(list)
+        
+        # Iterate over each word in the input list
+        for word in strs:
+            # Initialize a list to store the counts of characters in the current word
+            assign_number = [0] * 26
+            
+            
+            # Iterate over each character in the current word
+            for char in word:
+                # Calculate the index of the character in the list based on its ASCII value
+                index = ord(char) - ord("a")
+
+                # For example the word eat, tea and ate, all 3 of them will have same     
+                # index = ...
+                #         (1, 0, 0, 0, 1, 0, ..., 0, 1): ['eat', 'tea', 'ate'], 
+                #         (1, 0, 0, 1, 0, 0, ..., 0, 1): ['tan', 'nat'],
+                #         (0, 1, 0, 0, 0, 0, ..., 0, 0): ['bat']
+                # ...
+                # Increment the count of the character in the list
+                assign_number[index] += 1
+            
+           
+            # Convert the list of character counts into a tuple and use it as a key
+            # Add the current word to the list associated with the key in the dictionary
+
+            # ...
+            # result will map these indexes to their correspoding value or word
+            result[tuple(assign_number)].append(word)
+        
+        # Return the values of the dictionary, which represent the groups of anagrams
+        return result.values()
