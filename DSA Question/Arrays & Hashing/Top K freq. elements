@@ -1,0 +1,24 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for n in nums:
+            count[n] = 1 + count.get(n, 0)   # iterating through array once to get frequencies
+        for n, c in count.items():           # bucket sot to organize them based on their frequencies
+            freq[c].append(n)                # numbers from input array is being placed in the indexes of the freq list or freq[i] 
+
+        res = []                
+        for i in range(len(freq) - 1, 0, -1):   # collect k's nad put in res
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+
+# We used 2 techniques first is dictionary and then bucket sort. 
+# dictionary allowed us to count the frequency of the input array and then store them in the value section 
+# and the originals array-input will be in the key sections
+# After that ...
+# Oragnize the numbers or keys by the corresponding frequency 
+# For example, if the numbers 2 and 5 both appear 3 times in the input list, they would both be in the bucket at freq[3]. 
+# Lastly, Code then iterates over the freq list in reverse order.
