@@ -1,0 +1,44 @@
+# 2 Sum ...
+
+def twoSum(nums, target):
+    numMap = {}  # Create an empty dictionary to store numbers and their indices
+    for i, num in enumerate(nums):  # Iterate through the array with indices
+        complement = target - num  # Calculate the complement of the current number
+        if complement in numMap:  # Check if the complement exists in the dictionary
+            return [numMap[complement], i]  # Return the indices of the complement and current number
+        numMap[num] = i  # Add the current number and its index to the dictionary
+    return []  # No solution found, return an empty array
+
+
+# 3 Sum ...
+
+def threeSum(nums):
+    nums.sort()  # Step 1: Sort the array
+    result = []  # Step 2: Initialize result list
+    
+    for i in range(len(nums)):
+        if i > 0 and nums[i] == nums[i-1]:
+            continue  # Skip duplicates
+        
+        left = i + 1
+        right = len(nums) - 1
+        
+        while left < right:
+            curr_sum = nums[i] + nums[left] + nums[right]
+            
+            if curr_sum < 0:
+                left += 1
+            elif curr_sum > 0:
+                right -= 1
+            else:
+                result.append([nums[i], nums[left], nums[right]])
+                
+                while left < right and nums[left] == nums[left+1]:
+                    left += 1  # Skip duplicates on the left side
+                while left < right and nums[right] == nums[right-1]:
+                    right -= 1  # Skip duplicates on the right side
+                
+                left += 1
+                right -= 1
+    
+    return result  # Step 4: Return the result list
