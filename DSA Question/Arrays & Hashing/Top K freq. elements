@@ -1,24 +1,40 @@
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count = {}
-        freq = [[] for i in range(len(nums) + 1)]
+    def longestConsecutive(self, nums: List[int]) -> int:
+        # Step 1: Convert the input array into a set for faster element lookup
+        numSet = set(nums)
+        
+        # Step 2: Initialize the variable to keep track of the longest sequence length
+        longest = 0
 
+        # Step 3: Iterate over each number in the input array
         for n in nums:
-            count[n] = 1 + count.get(n, 0)   # iterating through array once to get frequencies
-        for n, c in count.items():           # bucket sot to organize them based on their frequencies
-            freq[c].append(n)                # numbers from input array is being placed in the indexes of the freq list or freq[i] 
+            # Step 4: Check if the current number is the start of a sequence
+            if (n - 1) not in numSet:
+                # Step 5: If it is, initialize the current sequence length to 1
+                length = 1
 
-        res = []                
-        for i in range(len(freq) - 1, 0, -1):   # collect k's nad put in res
-            for n in freq[i]:
-                res.append(n)
-                if len(res) == k:
-                    return res
+                # Step 6: Increment the number and the sequence length as long as
+                #         the next consecutive number exists in the set
+                while (n + length) in numSet:
+                    length += 1
 
-# We used 2 techniques first is dictionary and then bucket sort. 
-# dictionary allowed us to count the frequency of the input array and then store them in the value section 
-# and the originals array-input will be in the key sections
-# After that ...
-# Oragnize the numbers or keys by the corresponding frequency 
-# For example, if the numbers 2 and 5 both appear 3 times in the input list, they would both be in the bucket at freq[3]. 
-# Lastly, Code then iterates over the freq list in reverse order.
+                # Step 7: Update the longest sequence length if the current sequence is longer
+                longest = max(length, longest)
+
+        # Step 8: Return the length of the longest consecutive sequence found
+        return longest
+
+# We use a set data structure to convert the input array into a set, allowing for faster element lookup.
+
+# The variable 'longest' is used to keep track of the length of the longest consecutive sequence found.
+
+# We iterate over each number in the input array to identify potential starting points of consecutive sequences.
+
+# If the current number is the start of a sequence (i.e., the previous number does not exist in the set),
+# we initialize a sequence length of 1.
+
+# We then increment the number and the sequence length as long as the next consecutive number exists in the set.
+
+# The 'longest' variable is updated if the current sequence is longer than the previous longest sequence.
+
+# Finally, we return the length of the longest consecutive sequence found.
