@@ -24,17 +24,13 @@ class Solution:
         # Step 8: Return the length of the longest consecutive sequence found
         return longest
 
+
 # We use a set data structure to convert the input array into a set, allowing for faster element lookup.
-
 # The variable 'longest' is used to keep track of the length of the longest consecutive sequence found.
-
 # We iterate over each number in the input array to identify potential starting points of consecutive sequences.
-
 # If the current number is the start of a sequence (i.e., the previous number does not exist in the set),
 # we initialize a sequence length of 1.
 
 # We then increment the number and the sequence length as long as the next consecutive number exists in the set.
-
 # The 'longest' variable is updated if the current sequence is longer than the previous longest sequence.
-
 # Finally, we return the length of the longest consecutive sequence found.
