@@ -2,24 +2,38 @@ class Solution:
     
     # strs: a list of strings
     # return encodes a list of strings to a single string.
-
     def encode(self, strs):
         res = ""
+
+        # Step 1: Iterate over each string in the input list
         for s in strs:
+            # Step 2: Append the length of the string, followed by a "#" delimiter, to the result string
             res += str(len(s)) + "#" + s
+
+        # Step 3: Return the encoded string
         return res
 
     # A string
-   # return ecodes a single string to a list of strings
-
+    # return decodes a single string to a list of strings
     def decode(self, s):
         res, i = [], 0
 
+        # Step 4: Iterate over the characters of the input string
         while i < len(s):
             j = i
+
+            # Step 5: Find the index of the "#" delimiter, which separates the length and the string
             while s[j] != "#":
                 j += 1
+
+            # Step 6: Extract the length of the string from the substring before the "#"
             length = int(s[i:j])
+
+            # Step 7: Extract the string itself from the substring after the "#"
             res.append(s[j + 1 : j + 1 + length])
+
+            # Step 8: Move the index to the next position after the extracted string
             i = j + 1 + length
+
+        # Step 9: Return the decoded list of strings
         return res
