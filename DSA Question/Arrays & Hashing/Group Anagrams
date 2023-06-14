@@ -16,6 +16,13 @@ class Solution:
                # Step 5: Calculate the index of the character in the list based on its ASCII value
                 index = ord(char) - ord("a")
                 
+                # For example, in "eat".  e is 101 and a is 97
+                # So that's, 102 - 97 = 5
+                # So, put 1 in 5th index of the empty array
+                # Increment the count of the character in the list
+               
+                 assign_number[index] += 1
+               
                 # For example, the words "eat", "tea", and "ate" will all have the same index,
                 # resulting in the same character count list:
                 # (1, 0, 0, 0, 1, 0, ..., 0, 1): ['eat', 'tea', 'ate']
@@ -23,9 +30,9 @@ class Solution:
                 # (1, 0, 0, 1, 0, 0, ..., 0, 1): ['tan', 'nat']
                 # The word "bat" will have a different index and character count list:
                 # (0, 1, 0, 0, 0, 0, ..., 0, 0): ['bat']
-                # Increment the count of the character in the list
-                assign_number[index] += 1
-            
+           
+           
+           
             # Step 7: Convert the list of character counts into a tuple and use it as a key
             # Step 8: Add the current word to the list associated with the key in the dictionary
             result[tuple(assign_number)].append(word)
