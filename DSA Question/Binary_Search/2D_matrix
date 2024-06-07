@@ -6,7 +6,7 @@ class Solution:
     #will need 2 binary searches, 1st to search the row
         while top <= bot: 
             row_mid = (top + bot) // 2
-            if target > matrix [row_mid][-1]: # why -1 cuz to start from the rightmost biggest number in that row
+            if target > matrix [row_mid][-1]: // why -1 cuz to start from the rightmost biggest number in that row
                 top = row_mid + 1 # cuz if t=6 and rowbiggest no. is 5, that means we go up to smaller no. of rows 
             elif target < matrix[row_mid][0]: # 0 to start from the leftmost smallest no. in given row
                 bot = row_mid - 1 #vice-versa
