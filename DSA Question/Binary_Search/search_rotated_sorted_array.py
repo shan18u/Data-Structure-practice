@@ -8,7 +8,7 @@ class Solution:
                 return mid
 
             # left sorted portion
-            if nums[l] <= nums[mid]: # we in left sorted array if we see that our mid is > left value
+            if nums[l] <= nums[mid]: 
                 
                 if target > nums[mid] or target < nums[l]:  # Checks if we have to move serach in right section or not
                 # For example [4, 5, 6, 7, 0, 1, 2] -> target = 0. 1st iteration: mid = 7
