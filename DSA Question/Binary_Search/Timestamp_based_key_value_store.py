@@ -18,14 +18,14 @@ class TimeMap:
         r = len(self.time_dict[key]) - 1 
         while l <= r:
             mid = (l + r) // 2
-            current_ts = self.time_dict[key][mid]  #get the current timestamps from the time_dict
+            current_ts = self.time_dict[key][mid]  # get the current timestamps from the time_dict
 
             if current_ts == timestamp:   # check if curr ts == target ts
                 return self.value_dict[key][mid]   # if yes, then use that midpoint to get the value from the value_dict and return that
             
             elif current_ts > timestamp: # too big compare to target_ts so move the right pointer left
                 r = mid - 1
-            else:                        # vice versa
+            else:                        # opposite
                 l = mid + 1
         return self.value_dict[key][r] if r >= 0 else ""
 
