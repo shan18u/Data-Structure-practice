@@ -1,6 +1,6 @@
 class TimeMap:
 # IMPORTANT -> we only go to only direction which is right only.
-# Need Timestamps either less then required or equal to.
+# Need Timestamps either less then required or equal to the target_timestamp.
     
     def __init__(self):
         # we will use 2 different dict.
