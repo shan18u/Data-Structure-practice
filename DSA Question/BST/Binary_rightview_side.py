@@ -1,27 +1,21 @@
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        # we will use BFS and Queues to create a sublist of based on every level
 
-        res = []    # array for the results
-        q = collections.deque() # init queue
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        # HINT: we will use bfs and queue for this 
+        # add root node to queue -> and once that level order is done then -> add the rightmost value pop it and add them to our result.
+        res = []
+        q = collections.deque([root])
 
-        if root:
-            q.append(root) 
-        
-        # run bfs while q is not empty
-        while q:
-            val = []
-            # iterate to one level at time
-            for i in range(len(q)):
-                
-                # using fifo we will pop the node from the left
-                node = q.popleft()
-                val.append(node.val)
-                # check if node is not null using if, cuz if we don't we could add null which we don't want 
-                if node.left: 
+        while q: # start level by level
+            rightSide = None # if our its null
+            qLen = len(q) # for 1st level get its length, ...
+
+            for i in range(qLen):
+                node = q.popleft() # pop to left and add to right
+                if node: # if not null only then update our right-side to last node
+                    rightSide = node
                     q.append(node.left)
-                if node.right:
                     q.append(node.right)
-            # after the entire level is done, we will add
-            res.append(val)
+            if rightSide:
+                res.append(rightSide.val)
         return res
