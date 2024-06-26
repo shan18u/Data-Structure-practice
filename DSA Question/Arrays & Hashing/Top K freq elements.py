@@ -11,12 +11,12 @@ class Solution:
         for n, c in count.items():
             freq[c].append(n)                # numbers from the input array are placed in the indexes of the freq list
 
-        res = []
+        res = []   # an array of the results that we will be returning
         # collect the top k frequent numbers
-        for i in range(len(freq) - 1, 0, -1):
-            for n in freq[i]:
-                res.append(n)
-                if len(res) == k:
+        for i in range(len(freq) - 1, 0, -1):            # loop in reverse
+            for n in freq[i]:                            # using frequency
+                res.append(n)                            # start adding the elements in result
+                if len(res) == k:                        # stop once we reached the target k == 2
                     return res
 
 # We used 2 techniques first is dictionary and then bucket sort.
