@@ -5,7 +5,7 @@ class Solution:
         for i in range(1, len(nums)):       # start from index 1 cuz we need a prefix to start calculates
             res[i] = res[i-1] * nums[i-1]   # calculate and then assign it to res and use previous multipled portion to calculate forward until loop ends
         
-        postfix = 1
+        postfix = 1                            # why 1 similar to res, start of the array is 1 (cuz no element to calc.), even though its reverse
         for i in range(len(nums)-1, -1, -1):   # reverse
             res[i] *= postfix                  # check doc for examples
             postfix *= nums[i]                 # postfix * and update the result
