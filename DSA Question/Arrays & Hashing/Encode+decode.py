@@ -15,7 +15,7 @@ class Solution:
             j = i                                   # assign 2nd pointer (to get the integer from encoded) and start from 1st
             while str[j] != "#"                     # keep incrementing j till we reach "#" 
                 j += 1
-            length = int(str[i:j])                  # store the integer in this varirable as int
+            length = int(str[i:j])                  # store the integer in this varirable as int, why i:j -> means read all the way but not j cuz j rn is #, and we need only integer
 
             res.append(str[j+ 1 : j + 1 + length])  # j+1 => the 1st character(alphabet) in the word : end of the string
             i = j + 1 + length                      # update 1st pointer i to end of the string
