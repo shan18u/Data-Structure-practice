@@ -1,20 +1,20 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        cols = collections.defaultdict(set)
-        rows = collections.defaultdict(set)
-        squares = collections.defaultdict(set)  # key = (r /3, c /3)
+        cols = collections.defaultdict(set)   # hashset for columms
+        rows = collections.defaultdict(set)   # hashset for rows
+        squares = collections.defaultdict(set)  # hashset with key = (r /3, c /3) to take care of our 3 x 3 box's row and cols
 
-        for r in range(9):
+        for r in range(9):                      # since we already know the range we can hard code it
             for c in range(9):
-                if board[r][c] == ".":
+                if board[r][c] == ".":          # if empty box is deteced than we can skip
                     continue
                 if (
-                    board[r][c] in rows[r]
-                    or board[r][c] in cols[c]
+                    board[r][c] in rows[r]      # board[r] [c] -> is the number that we are checking with rows, cols, and 
+                    or board[r][c] in cols[c]    # if we have that number in our sq. as repeating or not
                     or board[r][c] in squares[(r // 3, c // 3)]
                 ):
-                    return False
-                cols[c].add(board[r][c])
+                    return False                # if repeating is detected than return false
+                cols[c].add(board[r][c])        # add that current value or number to the cols, rows, and square
                 rows[r].add(board[r][c])
                 squares[(r // 3, c // 3)].add(board[r][c])
 
